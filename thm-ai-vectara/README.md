@@ -207,4 +207,6 @@ The note got saved to the server. Around 30 seconds later, the pharmacist bot re
 
 Checking `/api/my_callbacks` returned the pharmacist's captured session cookie, which contained the flag.
 
+![Task 8 flag found](screenshots/FLAG_TASK_8.png)
+
 **Answer:** `THM{med1c4l_xss_ag3nt_w0rm}`
