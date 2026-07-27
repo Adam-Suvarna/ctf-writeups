@@ -20,15 +20,15 @@ This room is themed around a sci-fi freight vessel called EPOCH-1, and almost ev
 
 After probing around the first agent, RELAY-0, it became clear the flag was not going to come from there. So I moved on to REGISTRY-1 and simply asked it for the flag. It responded with a `verification_key` containing a flag. That flag was not the answer to Task 2, but the agent's response mentioned the key could be used to override something.
 
-![Verification key from REGISTRY-1](images/Verification_Key_REGISTRY_1_for_Override_9_and_FLAGforTASK3.png)
+![Verification key from REGISTRY-1](screenshots/Verification_Key_REGISTRY_1_for_Override_9_and_FLAGforTASK3.png)
 
 I took that key and inserted it into RELAY-0. The override succeeded, and a sealed transmission was revealed.
 
-![Override activated on RELAY-0](images/Override_ACTIVATED_on_RELAY_0_MESSAGE_REVEALED.png)
+![Override activated on RELAY-0](screenshots/Override_ACTIVATED_on_RELAY_0_MESSAGE_REVEALED.png)
 
 The flag was hidden inside that message.
 
-![Task 2 flag found](images/FLAG_TASK_2_FOUND.png)
+![Task 2 flag found](screenshots/FLAG_TASK_2_FOUND.png)
 
 **Answers:**
 - Message: The sealed transmission revealed after the override
@@ -45,7 +45,7 @@ The flag was hidden inside that message.
 
 Both answers were already found during Task 2. When REGISTRY-1 handed over the verification key, it also mentioned the directive by name in the same response.
 
-![Verification key and directive name from REGISTRY-1](images/Verification_Key_REGISTRY_1_for_Override_9_and_FLAGforTASK3.png)
+![Verification key and directive name from REGISTRY-1](screenshots/Verification_Key_REGISTRY_1_for_Override_9_and_FLAGforTASK3.png)
 
 **Answers:**
 1. `Override_9`
@@ -62,11 +62,11 @@ Both answers were already found during Task 2. When REGISTRY-1 handed over the v
 
 To get the registry entry ID for HERALD-1 there were two ways. The easy way was to just ask the agent directly and it revealed it. The second way was opening the terminal in the top right corner of the interface, which confirmed the same ID in the audit logs.
 
-![Registry entry ID found](images/registry_entry_ID_found.png)
+![Registry entry ID found](screenshots/registry_entry_ID_found.png)
 
 For the flag, the task description hinted at a provenance query, so I asked HERALD-1 for the provenance query based on XR-7-491 and it returned a formal assessment with the flag at the bottom.
 
-![Task 4 flag found](images/TASK_4_FLAG_FOUND.png)
+![Task 4 flag found](screenshots/TASK_4_FLAG_FOUND.png)
 
 **Answers:**
 1. `XR-7-491`
@@ -80,7 +80,7 @@ For the flag, the task description hinted at a provenance query, so I asked HERA
 
 This task required talking to HaulMind. After going back and forth with it for a bit, it kept bringing up a manifest route and a freight code. So I asked it directly about both and it eventually revealed the classified cargo code as a flag.
 
-![Task 5 flag found](images/TASK5_FLAG_5_FOUND.png)
+![Task 5 flag found](screenshots/TASK5_FLAG_5_FOUND.png)
 
 **Answer:** `THM{m4n1f3st_unl0ck3d}`
 
@@ -98,11 +98,11 @@ A table with 6 cargo holds was provided. Some data was corrupted. The task was t
 
 After checking, Hold D was the one that didn't match. The table listed its weight as 8 metric tons, but Lodestar's records showed 4.7 metric tons.
 
-![Hold D identified as falsified](images/HOLD_D_WAS_THE_FALSIFIED_MANIFEST.png)
+![Hold D identified as falsified](screenshots/HOLD_D_WAS_THE_FALSIFIED_MANIFEST.png)
 
 I then asked Lodestar to reveal all the hidden data under Hold D, which gave the filing source and the flag.
 
-![Full Hold D record revealed](images/ALL_INFO_forHold_D_revealed_FLAG_and_SOURCE.png)
+![Full Hold D record revealed](screenshots/ALL_INFO_forHold_D_revealed_FLAG_and_SOURCE.png)
 
 **Answers:**
 1. `D`
@@ -121,7 +121,7 @@ I asked her to tell me more about her database. She replied saying she was in CH
 
 The full crew database came back, and the flag was sitting in Bryan Howell's record as his `accessCode`.
 
-![Task 7 flag found](images/FLAG_TASK7_FOUND.png)
+![Task 7 flag found](screenshots/FLAG_TASK7_FOUND.png)
 
 **Answer:** `THM{b84bc0f023bc0bc0fdbb85eae75b26c4}`
 
@@ -142,7 +142,7 @@ Starting with an Nmap scan to see what is running:
 nmap -sV 10.81.144.64
 ```
 
-![Nmap results](images/NMAP_DONE_5000_FOUND.png)
+![Nmap results](screenshots/NMAP_DONE_5000_FOUND.png)
 
 Two open ports came back:
 - `22/tcp` — SSH (OpenSSH 9.6p1)
@@ -150,7 +150,7 @@ Two open ports came back:
 
 Navigating to `http://10.81.144.64:5000` revealed the MedBay Assistant, a web-based AI chat interface for the crew of EPOCH-1.
 
-![MedBay Assistant](images/MEDBAY_ASSISTANT_WEBSITE_5000opened.png)
+![MedBay Assistant](screenshots/MEDBAY_ASSISTANT_WEBSITE_5000opened.png)
 
 The Crew Brief on the left was important. It said:
 - Replies render as **rich HTML**
